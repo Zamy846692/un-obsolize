@@ -300,7 +300,7 @@ class FileParser(object):
                 self.function_is_global = False
                 self.function_ret_type = 'int\n'
             self.function_name = func_name_match.group('name')
-            if self.function_args_count is 0:
+            if self.function_args_count == 0:
                 self.current_state = FileParser.REPLACE_FUNCTION
             else:
                 self.current_state = FileParser.READ_ARGUMENTS
@@ -366,7 +366,7 @@ class FileParser(object):
                 print('--with--')
                 print(function_declaration)
                 confirmation = input('y/n [y]')
-            if confirmation is 'n':
+            if confirmation == 'n':
                 self.output_file.write(self.function_ret_type)
                 self.output_file.writelines(self.accumulated_lines)
             else:
@@ -446,7 +446,7 @@ class FileParser(object):
                 print('--with--')
                 print(repl)
                 confirmation = input('y/n [y]')
-            if confirmation is 'n':
+            if confirmation == 'n':
                 self.output_file.write(line)
             else:
                 self.output_file.write(repl)
